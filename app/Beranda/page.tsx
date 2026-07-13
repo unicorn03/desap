@@ -3,7 +3,7 @@ export default function Beranda() {
     <div
       className="flex min-h-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat text-white"
       style={{
-        backgroundImage: "url('/backgrounddesa.jpg')",
+        backgroundImage: "url('/backgrounddesa.webp')",
       }}
     >
       <h1 className="text-7xl text-center font-black text-[#3e4d2b] mb-4">
