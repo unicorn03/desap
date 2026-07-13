@@ -13,7 +13,7 @@ export default function Home() {
       </h1>
 
       <p className="mt-2 text-slate-400">
-        anjay lorem ipsum
+        anjay lorem ipsumm
       </p>
     </div>
   );
