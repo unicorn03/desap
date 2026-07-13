@@ -1,14 +1,21 @@
 .navbar {
+  position: fixed;
+  top: 24px;
+  left: 80px;
+  right: 80px;
+
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  background-color: #3e4d2b;
+  align-items: center;
+
+  height: 80px;
   padding: 10px 24px;
-  border-radius: 32px;
-  /* border: 2px solid rgba(255, 255, 255, 0.4); */
-  color: #ffffff;
-  margin: 20px 24px 0 24px;
-  font-family: sans-serif;
+
+  background: #3e4d2b;
+  border-radius: 40px;
+
+  color: white;
+  z-index: 1000;
 }
 
 .brand {
