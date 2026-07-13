@@ -1,14 +1,11 @@
 import { config, fields, singleton, collection } from '@keystatic/core'
 
-const isProd = !!process.env.KEYSTATIC_GITHUB_CLIENT_ID
-
 export default config({
-  storage: isProd
+  storage: process.env.NEXT_PUBLIC_REPO_OWNER
     ? {
         kind: 'github',
         repo: {
-          // Ganti dengan owner & nama repo GitHub yang sebenarnya
-          owner: process.env.NEXT_PUBLIC_REPO_OWNER as string,
+          owner: process.env.NEXT_PUBLIC_REPO_OWNER,
           name: process.env.NEXT_PUBLIC_REPO_NAME as string,
         },
       }
