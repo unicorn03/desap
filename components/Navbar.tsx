@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -14,9 +15,60 @@ const menuItems = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      // Always show navbar near the top of the page
+      if (currentScrollY < 80) {
+        setIsVisible(true);
+      } else if (currentScrollY > lastScrollY.current) {
+        // Scrolling down
+        setIsVisible(false);
+      } else {
+        // Scrolling up
+        setIsVisible(true);
+      }
+
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-6 left-4 right-4 md:left-[80px] md:right-[80px] flex justify-between items-center h-20 py-[10px] px-6 bg-[#3e4d2b] rounded-[40px] text-white z-[1000]">
+    <nav
+      className={`
+        fixed
+        top-8
+        left-20
+        right-20
+        z-50
+        flex
+        h-20
+        items-center
+        justify-between
+        rounded-full
+        bg-gradient-to-r
+        from-[#2E4A2B]
+        via-[#4F6F3A]
+        to-[#6E8F47]
+        border
+        border-white/20
+        shadow-2xl
+        px-6
+        py-2.5
+        text-white
+        transition-transform
+        duration-300
+        ease-in-out
+        ${isVisible ? "translate-y-0" : "-translate-y-32"}
+      `}
+    >
       <div className="flex items-center gap-[10px]">
         <Image
           src="/logo-desa.png"
