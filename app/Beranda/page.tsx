@@ -1,5 +1,9 @@
+import AboutSection from "@/app/Beranda/AboutSection";
+import VideoProfilSection from "@/app/Beranda/VideoProfilSection";
+
 export default function Beranda() {
   return (
+  <main>
     <div
       className="flex min-h-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat text-white"
       style={{
@@ -16,5 +20,8 @@ export default function Beranda() {
         anjay lorem ipsumm
       </p>
     </div>
+    <AboutSection/>
+    <VideoProfilSection/>
+  </main>
   );
 }

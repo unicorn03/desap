@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "../components/Navbar";
 import "./globals.css";
 import { Outfit } from "next/font/google";
-import AboutSection from "@/app/Beranda/AboutSection";
-import VideoProfilSection from "./Beranda/VideoProfilSection";
 import Footer from "@/components/Footer";
 
 
@@ -25,8 +23,6 @@ export default function RootLayout({
       <body className={outfit.className}>
         <Navbar/>
         {children}
-        <AboutSection/>
-        <VideoProfilSection/>
         <Footer/>
       </body>
     </html>

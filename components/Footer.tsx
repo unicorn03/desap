@@ -25,7 +25,7 @@ export default function Footer() {
       {/* Emblem logo, offset upward out of the footer's own background */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-2/3">
         <Image
-          src="/logo-desa.png"
+          src="/logo-plumbangan.png"
           alt="Logo Desa Plumbangan"
           width={150}
           height={150}
