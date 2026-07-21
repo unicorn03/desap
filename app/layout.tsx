@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 
 export const metadata: Metadata = {
