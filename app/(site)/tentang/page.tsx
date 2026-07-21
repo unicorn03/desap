@@ -1,5 +1,5 @@
-import MisiDesaSection from "./MisiDesaSection";
-import VisiDesaSection from "./VisiDesaSection";
+import MisiDesaSection from "@/components/tentang/MisiDesaSection";
+import VisiDesaSection from "@/components/tentang/VisiDesaSection";
 
 export default function Tentang() {
   return (
