@@ -22,14 +22,11 @@ export default function Navbar() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Always show navbar near the top of the page
       if (currentScrollY < 80) {
         setIsVisible(true);
       } else if (currentScrollY > lastScrollY.current) {
-        // Scrolling down
         setIsVisible(false);
       } else {
-        // Scrolling up
         setIsVisible(true);
       }
 

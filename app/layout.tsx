@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Outfit } from "next/font/google";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-
 
 export const metadata: Metadata = {
   title: "Desa Plumbangan",
@@ -20,11 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={outfit.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
-      </body>
+      <body className={outfit.className}>{children}</body>
     </html>
   );
 }
