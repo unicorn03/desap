@@ -22,7 +22,7 @@ export default function GaleriPage() {
 
       {/* Main Layout Flow (pb-24 diberikan agar konten paling bawah tidak tertutup BottomNav) */}
       <div className="relative z-10 space-y-4 md:space-y-8 pb-24 md:pb-16">
-        <HeroGaleri bannerImage="/backgrounddesa.webp" />
+        <HeroGaleri bannerImage="/images/galeri/IMG_6547.jpg" />
         <AsetDesa />
         <KegiatanDesa />
         <GaleriGrid />

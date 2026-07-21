@@ -6,32 +6,32 @@ const kegiatanList = [
   {
     id: 1,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/Methik Pagak 2.JPG",
   },
   {
     id: 2,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/baritan suro.jpeg",
   },
   {
     id: 3,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/Piodalan Hindu 2.JPG",
   },
   {
     id: 4,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/Gondang Pagak 2.JPG",
   },
   {
     id: 5,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/Punden Mbah Galiyem Sumberkodok 1.JPG",
   },
   {
     id: 6,
     desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/backgrounddesa.webp",
+    image: "/images/galeri/IMG_3713.JPG",
   },
 ];
 
