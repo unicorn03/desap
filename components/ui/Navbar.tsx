@@ -40,12 +40,13 @@ export default function Navbar() {
   return (
     <nav
       className={`
+        hidden
+        md:flex
         fixed
         top-8
         left-20
         right-20
         z-50
-        flex
         h-20
         items-center
         justify-between

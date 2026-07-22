@@ -3,12 +3,12 @@
 import Image from "next/image";
 
 const extraGallery = [
-  { id: 1, src: "/backgrounddesa.webp" },
-  { id: 2, src: "/backgrounddesa.webp" },
-  { id: 3, src: "/backgrounddesa.webp" },
-  { id: 4, src: "/backgrounddesa.webp" },
-  { id: 5, src: "/backgrounddesa.webp" },
-  { id: 6, src: "/backgrounddesa.webp" },
+  { id: 1, src: "/images/galeri/IMG_6544.webp" },
+  { id: 2, src: "/images/galeri/IMG_6545.webp" },
+  { id: 3, src: "/images/galeri/IMG_6555.webp" },
+  { id: 4, src: "/images/galeri/IMG_6435.webp" },
+  { id: 5, src: "/images/galeri/IMG_6563.webp" },
+  { id: 6, src: "/images/galeri/IMG_6506.webp" },
 ];
 
 export default function GaleriGrid() {
@@ -17,7 +17,7 @@ export default function GaleriGrid() {
       {/* Gambar Highlight Besar */}
       <div className="w-full h-[240px] sm:h-[420px] md:h-[550px] relative rounded-[28px] md:rounded-[35px] bg-[#3d4e2a] overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1">
         <Image
-          src="/backgrounddesa.webp"
+          src="/images/galeri/IMG_6547.jpg"
           alt="Galeri Highlight"
           fill
           className="object-cover"

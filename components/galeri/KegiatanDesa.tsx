@@ -5,7 +5,7 @@ import Image from "next/image";
 const kegiatanList = [
   {
     id: 1,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
+    desc: "Methik Pari merupakan sebuah ritual adat yang digelar menjelang masa panen raya sebagai wujud rasa syukur para petani",
     image: "/images/galeri/Methik Pagak 2.JPG",
   },
   {
@@ -15,7 +15,7 @@ const kegiatanList = [
   },
   {
     id: 3,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
+    desc: "Piodalan (atau Odalan) adalah upacara peringatan hari ulang tahun atau pendirian sebuah tempat suci atau pura.",
     image: "/images/galeri/Piodalan Hindu 2.JPG",
   },
   {

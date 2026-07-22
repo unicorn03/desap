@@ -10,7 +10,7 @@ export default function GaleriPage() {
   return (
     <main className="relative min-h-dvh w-full bg-white overflow-x-hidden">
       {/* Pattern Background Desa */}
-      <div className="fixed inset-0 pointer-events-none opacity-20 z-0">
+      <div className="fixed inset-0 pointer-events-none opacity-80 z-0">
         <Image
           src="/backgrounddesa.webp"
           alt="Background Pattern"
@@ -22,7 +22,7 @@ export default function GaleriPage() {
 
       {/* Main Layout Flow (pb-24 diberikan agar konten paling bawah tidak tertutup BottomNav) */}
       <div className="relative z-10 space-y-4 md:space-y-8 pb-24 md:pb-16">
-        <HeroGaleri bannerImage="/images/galeri/IMG_6547.jpg" />
+        <HeroGaleri bannerImage="/images/galeri/IMG_6563.webp" />
         <AsetDesa />
         <KegiatanDesa />
         <GaleriGrid />

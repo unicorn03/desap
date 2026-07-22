@@ -6,7 +6,7 @@ interface HeroGaleriProps {
   bannerImage?: string;
 }
 
-export default function HeroGaleri({ bannerImage = "/images/galeri/IMG_6547.jpg" }: HeroGaleriProps) {
+export default function HeroGaleri({ bannerImage = "/images/galeri/IMG_6563.webp" }: HeroGaleriProps) {
   return (
     <section className="relative w-full pt-20 md:pt-36 pb-8 overflow-hidden">
       <div className="w-full flex flex-row items-center justify-between min-h-[220px] sm:min-h-[300px] md:min-h-[480px]">
