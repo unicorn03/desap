@@ -3,19 +3,28 @@ import Link from "next/link";
 
 // 1. Perbaiki tipe props agar fleksibel menerima array 3 string
 type AboutSectionProps = {
-  images?: [string, string, string] | string[];
+  heading?: string;
+  paragraphs?: string[];
+  images?: (string | undefined)[];
 };
 
-// Default fallback images jika props tidak dikirim
-const DEFAULT_IMAGES: [string, string, string] = [
+const DEFAULT_IMAGES: string[] = [
   "/images/galeri/candi-plumbangan06.webp",
-  "/images/galeri/DSC02680.webp", // Ganti sesuai path gambar defaultmu
-  "/images/galeri/Piodalan Hindu 2.webp", // Ganti sesuai path gambar defaultmu
+  "/images/galeri/DSC02680.webp",
+  "/images/galeri/Piodalan Hindu 2.webp",
 ];
 
-export default function AboutSection({ images = DEFAULT_IMAGES }: AboutSectionProps) {
-  // 2. Destructure dengan aman
-  const [img1, img2, img3] = images;
+export default function AboutSection({
+  heading = "Tentang",
+  paragraphs = [
+    "Desa Plumbangan sudah ada pada masa Pemerintahan Kerajaan Kediri di bawah Raja Jaya Baya, yang terus berlangsung hingga Pemerintahan Majapahit, hingga masa keruntuhannya. Berdasarkan data yang kami dapat bahwa Pemerintah Desa Plumbangan yang pertama baru dimulai Tahun 1895 Masehi.",
+    "Terdiri dari 4 Dusun yang ditandai dengan petilasan ( punden ) dan setiap dusun mengadakan acara ritual sendiri ( Bersih Dusun ) di bulan Jawa Selo.",
+  ],
+  images = DEFAULT_IMAGES,
+}: AboutSectionProps) {
+  const img1 = images[0] || DEFAULT_IMAGES[0];
+  const img2 = images[1] || DEFAULT_IMAGES[1];
+  const img3 = images[2] || DEFAULT_IMAGES[2];
 
   return (
     <section className="px-4 bg-[#CADBB7] pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-16">
@@ -43,17 +52,13 @@ export default function AboutSection({ images = DEFAULT_IMAGES }: AboutSectionPr
           {/* Copy */}
           <div className="text-right text-white lg:text-left">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
-              Tentang
+              {heading}
             </h2>
 
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-white/90 sm:text-base">
-              <p>
-                Desa Plumbangan sudah ada pada masa Pemerintahan Kerajaan Kediri di bawah Raja Jaya Baya, yang terus berlangsung hingga Pemerintahan Majapahit, hingga masa keruntuhannya.
-                Berdasarkan data yang kami dapat bahwa Pemerintah Desa Plumbangan yang pertama baru dimulai Tahun 1895 Masehi. 
-              </p>
-              <p>
-                Terdiri dari 4 Dusun yang ditandai dengan petilasan ( punden ) dan setiap dusun mengadakan acara ritual sendiri ( Bersih Dusun ) di bulan Jawa Selo.
-              </p>
+              {paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
             </div>
             <Link
               href="/tentang"

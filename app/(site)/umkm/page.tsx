@@ -27,7 +27,7 @@ export default async function UMKMPage() {
         lokasi: item.lokasi || undefined,
         linkGmaps: item.link_gmaps || undefined,
         narahubung: item.kontak_wa || undefined,
-        mediaSosial: item.media_sosial || undefined,
+        mediaSosial: undefined,
         facebook: item.link_facebook || undefined,
         tiktok: item.link_tiktok || undefined,
         instagram: item.link_instagram || undefined,

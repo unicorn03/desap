@@ -1,0 +1,46 @@
+kepala_desa:
+  nama: Yoyok Eko Iswahyudi, S.E.
+  role: Kepala Desa
+  note: Penata Tingkat I - NIP.
+  foto: /YOYOK.webp
+sekretaris_desa:
+  nama: Nuryani
+  role: Sekretaris Desa
+  foto: /NURYANI.webp
+kasi_list:
+  - nama: Irwan Wahyu Saputro
+    role: Kasi Pelayanan
+    foto: /RWAN.webp
+  - nama: Didin Mulantika, S.Sos.
+    role: Kasi Pemerintahan
+    foto: /DIDIN.webp
+  - nama: Nur Hadi Asy'ari, S.Pd.I.
+    role: Kasi Kesejahteraan
+    foto: /NURHADI.webp
+kaur_list:
+  - nama: Elisa Wahyuniati
+    role: Kaur TU & Umum
+    foto: /ELISA.webp
+  - nama: Heru Irawan
+    role: Kaur Keuangan
+    foto: /HERU.webp
+  - nama: Septiana Heru Santi, S.Ak
+    role: Kaur Perencanaan
+    foto: /SEPTIANA.webp
+kamituwo_list:
+  - nama: Irwan Wahyu Saputro
+    role: Kamituwo Plumbangan
+    foto: /IRWAN.webp
+  - nama: Agus Riadi
+    role: Kamituwo Barek
+  - nama: Suryadi
+    role: Kamituwo Precet
+    foto: /SURYADI.webp
+  - nama: Bambang Prasetyo
+    role: Kamituwo Pagak
+karyawan_list:
+  - nama: Hernindya Annisa Rahayu, S.Pd
+    role: Karyawan Desa
+    foto: /HERNINDYA.webp
+  - nama: Dwi Agus Ningtyas
+    role: Karyawan Desa
