@@ -25,7 +25,9 @@ export default function PelayananCard({
             src={item.imagePath}
             alt={item.judulCard}
             fill
-            className="object-contain p-2 transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 400px"
+            quality={90}
+            className="object-contain p-2 md:p-3 transition-transform duration-300 group-hover:scale-105"
             onError={() => setImageError(true)}
           />
         ) : (

@@ -1,8 +1,14 @@
+export type PersyaratanKategori = {
+  judul: string;
+  deskripsi: string;
+};
+
 export type PelayananItem = {
   id: string;
   judulCard: string;
   judulModal: string;
   imagePath: string;
+  kategoriPersyaratan?: PersyaratanKategori[];
   dokumen?: string[];
   fotocopy?: string[];
   fotoUkuran?: string[];
@@ -13,19 +19,37 @@ export type PelayananItem = {
 export const DATA_PELAYANAN: PelayananItem[] = [
   {
     id: "ektp",
-    judulCard: "Persyaratan Tentang Kartu Tanda Penduduk (eKTP)",
-    judulModal: "Detail Persyaratan eKTP",
-    imagePath: "/images/pelayanan/ektp.png",
-    dokumen: ["Pengantar RT"],
-    fotocopy: ["Kartu Keluarga"],
-    fotoUkuran: ["Pas Foto 3 × 4 = 2 lembar"],
-    lainnya: ["Map kertas", "Nomor HP"],
+    judulCard: "Persyaratan Kartu Tanda Penduduk (eKTP)",
+    judulModal: "Persyaratan Pembuatan KTP",
+    imagePath: "/ktp.webp",
+    kategoriPersyaratan: [
+      {
+        judul: "KTP Pemula",
+        deskripsi:
+          "Sudah berusia 17 tahun, membawa fotokopi KK sebanyak 2 lembar, ambil formulir pendaftaran di desa, perekaman di kantor kecamatan.",
+      },
+      {
+        judul: "KTP Hilang",
+        deskripsi:
+          "Membawa Surat Kehilangan dari kantor kepolisian terdekat dan fotokopi KK.",
+      },
+      {
+        judul: "KTP Rusak",
+        deskripsi:
+          "Membawa fisik KTP lama yang rusak (jika masih ada) dan fotokopi KK.",
+      },
+      {
+        judul: "Perubahan Data (misalnya ganti alamat atau status)",
+        deskripsi:
+          "Membawa KTP lama, fotokopi KK, dan bukti pendukung perubahan data (seperti Buku Nikah atau Surat Keterangan Pindah).",
+      },
+    ],
   },
   {
     id: "skck",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Catatan Kepolisian (SKCK)",
     judulModal: "Detail Persyaratan SKCK",
-    imagePath: "/images/pelayanan/skck.png",
+    imagePath: "/skck.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP", "Akta Kelahiran", "BPJS"],
     fotoUkuran: ["3 × 4 = 2 lembar", "4 × 6 = 4 lembar"],
@@ -35,7 +59,7 @@ export const DATA_PELAYANAN: PelayananItem[] = [
     id: "usaha_kredit",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Usaha/Kredit",
     judulModal: "Detail Persyaratan Surat Keterangan Usaha/Kredit",
-    imagePath: "/images/pelayanan/usaha_kredit.png",
+    imagePath: "/izinusaha.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP"],
     detailTambahan: ["Jenis usaha", "Kredit di bank"],
@@ -45,7 +69,7 @@ export const DATA_PELAYANAN: PelayananItem[] = [
     id: "kehilangan",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Kehilangan",
     judulModal: "Detail Persyaratan Surat Keterangan Kehilangan",
-    imagePath: "/images/pelayanan/kehilangan.png",
+    imagePath: "/suratkehilangan.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP"],
     detailTambahan: [
@@ -57,7 +81,7 @@ export const DATA_PELAYANAN: PelayananItem[] = [
     id: "sktm",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Tidak Mampu (SKTM)",
     judulModal: "Detail Persyaratan SKTM",
-    imagePath: "/images/pelayanan/sktm.png",
+    imagePath: "/sktm.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP orang tua", "Data anak / Ijazah"],
     detailTambahan: [
@@ -70,7 +94,7 @@ export const DATA_PELAYANAN: PelayananItem[] = [
     id: "kepergian",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Kepergian",
     judulModal: "Detail Persyaratan Surat Keterangan Kepergian",
-    imagePath: "/images/pelayanan/kepergian.png",
+    imagePath: "/skkepergian.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP Suami Istri"],
     detailTambahan: ["Tujuan surat"],
@@ -80,7 +104,7 @@ export const DATA_PELAYANAN: PelayananItem[] = [
     id: "nikah",
     judulCard: "Persyaratan Pembuatan Surat Keterangan Nikah",
     judulModal: "Detail Persyaratan Surat Keterangan Nikah",
-    imagePath: "/images/pelayanan/nikah.png",
+    imagePath: "/sknikah.webp",
     dokumen: ["Pengantar RT"],
     fotocopy: ["Kartu Keluarga", "KTP", "Akta Kelahiran", "Ijazah Sekolah"],
     fotoUkuran: [

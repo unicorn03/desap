@@ -15,9 +15,11 @@ export default function ESiapBanner() {
           <div className="relative aspect-[4/3] w-full max-w-sm overflow-hidden rounded-2xl bg-white p-3 shadow-lg border border-white">
             {!imageError ? (
               <Image
-                src="/images/pelayanan/esiap.png"
+                src="/esiap.webp"
                 alt="Aplikasi E-Siap Kabupaten Blitar"
                 fill
+                sizes="(max-width: 768px) 100vw, 400px"
+                quality={90}
                 className="object-contain p-2"
                 onError={() => setImageError(true)}
               />
