@@ -82,23 +82,61 @@ export default function Navbar() {
         </span>
       </div>
 
-      <ul className="flex items-center gap-6 list-none m-0 p-0">
-        {menuItems.map((item) => {
-          const isActive = pathname === item.href;
-          return (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                className={`text-white no-underline font-semibold text-[14px] px-4 py-2 rounded-full transition-all duration-200 ease-in-out hover:bg-white/15 ${
-                  isActive ? "bg-white !text-[#3e4d2b]" : ""
-                }`}
-              >
-                {item.label}
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+            return (
+              <li key={item.href}>
+                <Link
+                  href={item.href}
+                  className={`text-white no-underline font-semibold text-[14px] px-4 py-2 rounded-full transition-all duration-200 ease-in-out hover:bg-white/15 ${
+                    isActive ? "bg-white !text-[#3e4d2b]" : ""
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+
+      {/* Mobile Top Header Bar */}
+      <div
+        className={`
+          flex md:hidden
+          fixed
+          top-4
+          left-4
+          right-4
+          z-40
+          h-14
+          items-center
+          justify-between
+          rounded-full
+          bg-[#3F4E20]/90
+          backdrop-blur-md
+          border
+          border-white/20
+          shadow-lg
+          px-4
+          text-white
+          transition-transform
+          duration-300
+          ease-in-out
+          ${isVisible ? "translate-y-0" : "-translate-y-24"}
+        `}
+      >
+        <div className="flex items-center gap-3">
+          <Image
+            src="/logo-desa.png"
+            alt="Logo Desa Plumbangan"
+            width={32}
+            height={32}
+            className="rounded-full bg-white p-0.5"
+          />
+          <span className="font-bold text-sm tracking-wide">
+            Desa Plumbangan
+          </span>
+        </div>
+      </div>
+    </>
   );
 }
