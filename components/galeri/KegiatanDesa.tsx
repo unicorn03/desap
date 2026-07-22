@@ -11,7 +11,7 @@ const kegiatanList = [
   {
     id: 2,
     desc: "Sebagian besar penduduk desa menggantungkan hidup pada sektor pertanian, tekun mengolah ladang dengan menanam tanaman padi serta palawija seperti jagung.",
-    image: "/images/galeri/DSC02680.JPG",
+    image: "/images/galeri/DSC02680.webp",
   },
   {
     id: 3,
@@ -21,12 +21,12 @@ const kegiatanList = [
   {
     id: 4,
     desc: "Peninjauan dan pendataan benda cagar budaya berupa batu bata kuno di area hutan Gondang, Pagak oleh aparatur desa bersama warga setempat.",
-    image: "/images/galeri/Gondang Pagak 2.jpg",
+    image: "/images/galeri/Gondang Pagak 2.webp",
   },
   {
     id: 5,
-    desc: "Warga melakukan ziarah ritual di Punden Mbah Galiyem Sumberkodok, memanjatkan doa khusyuk di dekat makam keramat dalam suasana tenang di bawah bimbingan sesepuh setempat.",
-    image: "/images/galeri/Punden Mbah Galiyem Sumberkodok 1.webp",
+    desc: "Baritan Suro adalah tradisi masyarakat Jawa yang digelar setiap malam atau menyambut 1 Muharram (1 Suro). Bertujuan sebagai penolak bala dan ungkapan syukur atas rezeki.",
+    image: "/images/galeri/baritan suro.webp",
   },
   {
     id: 6,
