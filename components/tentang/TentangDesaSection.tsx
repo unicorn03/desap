@@ -28,7 +28,7 @@ export default function TentangDesaSection({
     >
       <div className="mx-auto max-w-6xl px-6 py-10">
         {/* Title — mobile only, left-aligned, sits above everything */}
-        <h1 className="mb-8 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-left text-4xl font-black text-transparent sm:text-5xl md:hidden">
+        <h1 className="mb-8 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] pb-2 bg-clip-text text-left text-4xl font-black text-transparent sm:text-5xl md:hidden">
           <span>Tentang</span>
           <br />
           <span>Desa {villageName}</span>
@@ -51,7 +51,7 @@ export default function TentangDesaSection({
           {/* Text content */}
           <div className="text-right">
             {/* Title — desktop only, inside text column as original */}
-            <h1 className="mb-4 hidden bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-5xl font-black text-transparent md:block">
+            <h1 className="mb-4 hidden bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] pb-2 bg-clip-text text-5xl font-black text-transparent md:block">
               <span>Tentang</span>
               <br />
               <span>Desa {villageName}</span>

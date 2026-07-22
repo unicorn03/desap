@@ -13,7 +13,7 @@ export default function HeroGaleri({ bannerImage = "/images/galeri/drone.webp" }
         
         {/* Text Left */}
         <div className="w-1/2 px-4 sm:px-8 md:px-16 flex flex-col justify-center items-center text-center">
-          <h1 className="text-2xl sm:text-3xl md:text-5xl font-extrabold text-[#3a5323] leading-tight drop-shadow-sm">
+          <h1 className="mb-4 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-center text-5xl font-black leading-tight pb-2 text-transparent sm:text-6xl md:text-7xl">
             <span>Galeri</span>
             <br />
             <span className="text-xl sm:text-2xl md:text-5xl">Desa Plumbangan</span>
