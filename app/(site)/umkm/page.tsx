@@ -1,5 +1,40 @@
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "../../../keystatic.config";
 import UMKMView from "@/components/umkm/UMKMView";
+import { UMKMItem } from "@/components/umkm/umkmData";
 
-export default function UMKMPage() {
-  return <UMKMView />;
+const reader = createReader(process.cwd(), keystaticConfig);
+
+export default async function UMKMPage() {
+  let umkmList: UMKMItem[] = [];
+
+  try {
+    const rawUmkm = await reader.collections.umkm.all();
+    umkmList = rawUmkm.map((entry) => {
+      const item = entry.entry;
+      const galeri: string[] = [];
+      if (item.foto_galeri_1) galeri.push(item.foto_galeri_1);
+      if (item.foto_galeri_2) galeri.push(item.foto_galeri_2);
+      if (item.foto_galeri_3) galeri.push(item.foto_galeri_3);
+
+      return {
+        id: entry.slug,
+        nama: item.nama,
+        pemilik: item.pemilik || undefined,
+        kategori: item.kategori || "UMKM",
+        deskripsi: item.deskripsi,
+        jamOperasional: item.jam_operasional || undefined,
+        lokasi: item.lokasi || undefined,
+        narahubung: item.kontak_wa || undefined,
+        mediaSosial: item.media_sosial || undefined,
+        gambarUtama: item.foto_utama || undefined,
+        galeri: galeri.length > 0 ? galeri : undefined,
+      };
+    });
+  } catch {
+    // If error reading Keystatic collection, fallback to default static DATA_UMKM
+    umkmList = [];
+  }
+
+  return <UMKMView umkmList={umkmList} />;
 }

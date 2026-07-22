@@ -18,7 +18,7 @@ export default function PelayananView() {
           backgroundImage: "url('/backgrounddesa.webp')",
         }}
       >
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-[#3e4d2b] tracking-tight mb-2">
+        <h1 className="mb-4 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-center text-5xl font-black leading-tight text-transparent sm:text-6xl md:text-7xl">
           Pelayanan
           <br />
           Desa Plumbangan
