@@ -106,22 +106,29 @@ export default config({
       schema: {
         nama: fields.slug({ name: { label: 'Nama UMKM' } }),
         pemilik: fields.text({ label: 'Nama Pemilik' }),
-        kategori: fields.select({
-          label: 'Kategori',
-          options: [
-            { label: 'Kuliner', value: 'kuliner' },
-            { label: 'Kerajinan', value: 'kerajinan' },
-            { label: 'Pertanian', value: 'pertanian' },
-            { label: 'Perdagangan', value: 'perdagangan' },
-            { label: 'Jasa', value: 'jasa' },
-            { label: 'Lainnya', value: 'lainnya' },
-          ],
-          defaultValue: 'lainnya',
-        }),
+        kategori: fields.text({ label: 'Kategori Produk / Usaha', defaultValue: 'Makanan' }),
         deskripsi: fields.text({ label: 'Deskripsi Produk / Usaha', multiline: true }),
-        kontak_wa: fields.text({ label: 'Nomor WhatsApp (contoh: 081234567890)' }),
-        foto: fields.image({
-          label: 'Foto Produk / Usaha',
+        jam_operasional: fields.text({ label: 'Jam Operasional (contoh: Senin - Sabtu. Pukul 08.00 - 16.00 WIB)' }),
+        lokasi: fields.text({ label: 'Lokasi UMKM', multiline: true }),
+        kontak_wa: fields.text({ label: 'Nomor WhatsApp / Narahubung' }),
+        media_sosial: fields.text({ label: 'Media Sosial (contoh: @instagram123)' }),
+        foto_utama: fields.image({
+          label: 'Foto Utama UMKM',
+          directory: 'public/images/umkm',
+          publicPath: '/images/umkm/',
+        }),
+        foto_galeri_1: fields.image({
+          label: 'Foto Galeri 1',
+          directory: 'public/images/umkm',
+          publicPath: '/images/umkm/',
+        }),
+        foto_galeri_2: fields.image({
+          label: 'Foto Galeri 2',
+          directory: 'public/images/umkm',
+          publicPath: '/images/umkm/',
+        }),
+        foto_galeri_3: fields.image({
+          label: 'Foto Galeri 3',
           directory: 'public/images/umkm',
           publicPath: '/images/umkm/',
         }),
