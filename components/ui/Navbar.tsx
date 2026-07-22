@@ -38,59 +38,49 @@ export default function Navbar() {
   }, []);
 
   return (
-    <>
-      {/* Desktop Floating Navbar */}
-      <nav
-        className={`
-          hidden md:flex
-          fixed
-          top-8
-          left-12
-          right-12
-          lg:left-20
-          lg:right-20
-          z-50
-          h-20
-          items-center
-          justify-between
-          rounded-full
-          bg-gradient-to-r
-          from-[#2E4A2B]
-          via-[#4F6F3A]
-          to-[#6E8F47]
-          border
-          border-white/20
-          shadow-2xl
-          px-6
-          py-2.5
-          text-white
-          transition-transform
-          duration-300
-          ease-in-out
-          ${isVisible ? "translate-y-0" : "-translate-y-32"}
-        `}
-      >
-        <div className="flex items-center gap-[10px]">
-          <Image
-            src="/logo-desa.png"
-            alt="Logo Desa Plumbangan"
-            width={40}
-            height={40}
-            className="rounded-full bg-white p-0.5"
-          />
-          <span className="font-bold text-[14px] leading-[1.2]">
-            Desa
-            <br />
-            Plumbangan
-          </span>
-        </div>
-
-        <ul className="flex items-center gap-4 lg:gap-6 list-none m-0 p-0">
-          {menuItems.map((item) => {
-            const isActive =
-              item.href === "/"
-                ? pathname === "/"
-                : pathname.startsWith(item.href);
+    <nav
+      className={`
+        hidden
+        md:flex
+        fixed
+        top-8
+        left-20
+        right-20
+        z-50
+        h-20
+        items-center
+        justify-between
+        rounded-full
+        bg-gradient-to-r
+        from-[#2E4A2B]
+        via-[#4F6F3A]
+        to-[#6E8F47]
+        border
+        border-white/20
+        shadow-2xl
+        px-6
+        py-2.5
+        text-white
+        transition-transform
+        duration-300
+        ease-in-out
+        ${isVisible ? "translate-y-0" : "-translate-y-32"}
+      `}
+    >
+      <div className="flex items-center gap-[10px]">
+        <Image
+          src="/logo-desa.png"
+          alt="Logo Desa Plumbangan"
+          width={40}
+          height={40}
+          className="rounded-full bg-white"
+        />
+        <span className="font-bold text-[14px] leading-[1.2]">
+          Desa
+          <br />
+          Plumbangan
+        </span>
+      </div>
 
             return (
               <li key={item.href}>
