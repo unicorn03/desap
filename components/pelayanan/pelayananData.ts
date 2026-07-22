@@ -2,7 +2,7 @@ export type PelayananItem = {
   id: string;
   judulCard: string;
   judulModal: string;
-  imagePath: string; // Tempat pengguna dapat menaruh gambar aset (e.g. /images/pelayanan/ektp.png)
+  imagePath: string;
   dokumen?: string[];
   fotocopy?: string[];
   fotoUkuran?: string[];
@@ -13,7 +13,7 @@ export type PelayananItem = {
 export const DATA_PELAYANAN: PelayananItem[] = [
   {
     id: "ektp",
-    judulCard: "Persyaratan Pembuatan Kartu Tanda Penduduk (eKTP)",
+    judulCard: "Persyaratan Tentang Kartu Tanda Penduduk (eKTP)",
     judulModal: "Detail Persyaratan eKTP",
     imagePath: "/images/pelayanan/ektp.png",
     dokumen: ["Pengantar RT"],
