@@ -4,9 +4,11 @@ type VideoProfilSectionProps = {
 };
 
 export default function VideoProfilSection({
-  videoUrl,
+  videoUrl = "https://youtu.be/L_y2Qi_p9jc?si=aOPb0SJqYPPAkLP2",
   posterSrc,
 }: VideoProfilSectionProps) {
+  const embedUrl = getYouTubeEmbedUrl(videoUrl);
+
   return (
     <section className="bg-[#CADBB7] px-4 py-16 sm:px-8">
       <div className="mx-auto max-w-6xl mb-10 rounded-[2rem] bg-[#3F4E20] px-6 py-10 sm:px-10 sm:py-14">
@@ -16,9 +18,9 @@ export default function VideoProfilSection({
 
         <div className="overflow-hidden rounded-2xl border-4 border-white/90 bg-[#E1D6C1] shadow-lg">
           <div className="relative aspect-video w-full">
-            {videoUrl ? (
+            {embedUrl ? (
               <iframe
-                src={videoUrl}
+                src={embedUrl}
                 title="Video Profil Desa Plumbangan"
                 className="absolute inset-0 h-full w-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -45,6 +47,46 @@ export default function VideoProfilSection({
       </div>
     </section>
   );
+}
+
+/**
+ * Converts common YouTube URL formats into an embeddable URL.
+ * Supports:
+ *  - https://youtu.be/VIDEO_ID
+ *  - https://www.youtube.com/watch?v=VIDEO_ID
+ *  - https://www.youtube.com/embed/VIDEO_ID (already correct)
+ *  - https://www.youtube.com/shorts/VIDEO_ID
+ */
+function getYouTubeEmbedUrl(url?: string): string | null {
+  if (!url) return null;
+
+  try {
+    const parsed = new URL(url);
+    let videoId: string | null = null;
+
+    if (parsed.hostname === "youtu.be") {
+      videoId = parsed.pathname.slice(1);
+    } else if (
+      parsed.hostname.includes("youtube.com")
+    ) {
+      if (parsed.pathname === "/watch") {
+        videoId = parsed.searchParams.get("v");
+      } else if (parsed.pathname.startsWith("/embed/")) {
+        videoId = parsed.pathname.split("/embed/")[1];
+      } else if (parsed.pathname.startsWith("/shorts/")) {
+        videoId = parsed.pathname.split("/shorts/")[1];
+      }
+    }
+
+    if (!videoId) return null;
+
+    // Strip any extra query params that may have tagged along on the ID
+    videoId = videoId.split("?")[0].split("&")[0];
+
+    return `https://www.youtube.com/embed/${videoId}`;
+  } catch {
+    return null;
+  }
 }
 
 function PlayIcon() {
