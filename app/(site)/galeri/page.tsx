@@ -1,12 +1,35 @@
+import { createReader } from "@keystatic/core/reader";
+import keystaticConfig from "@/keystatic.config";
 import Image from "next/image";
 import HeroGaleri from "@/components/galeri/HeroGaleri";
 import AsetDesa from "@/components/galeri/AsetDesa";
-import KegiatanDesa from "@/components/galeri/KegiatanDesa";
+import KegiatanDesa, { KegiatanItem } from "@/components/galeri/KegiatanDesa";
 import GaleriGrid from "@/components/galeri/GaleriGrid";
-// Panggil MobileBottomNav eksis milikmu (sesuaikan path foldernya, misal di @/components/ui/)
 import MobileBottomNav from "@/components/ui/MobileBottomNav"; 
 
-export default function GaleriPage() {
+const reader = createReader(process.cwd(), keystaticConfig);
+
+export default async function GaleriPage() {
+  const galeri = await reader.singletons.galeri.read();
+
+  const asetDesaList = (galeri?.aset_desa || [])
+    .map((item) => ({
+      nama: item.nama || undefined,
+      foto: item.foto || "",
+    }))
+    .filter((item) => item.foto);
+
+  const kegiatanDesaList: KegiatanItem[] = (galeri?.kegiatan_desa || [])
+    .map((item) => ({
+      deskripsi: item.deskripsi || "",
+      foto: item.foto || "",
+    }))
+    .filter((item) => item.foto);
+
+  const extraImagesList = (galeri?.galeri_grid || [])
+    .map((item) => item.foto)
+    .filter(Boolean) as string[];
+
   return (
     <main className="relative min-h-dvh w-full bg-white overflow-x-hidden">
       {/* Pattern Background Desa */}
@@ -20,15 +43,18 @@ export default function GaleriPage() {
         />
       </div>
 
-      {/* Main Layout Flow (pb-24 diberikan agar konten paling bawah tidak tertutup BottomNav) */}
+      {/* Main Layout Flow */}
       <div className="relative z-10 space-y-4 md:space-y-8 pb-24 md:pb-16">
-        <HeroGaleri bannerImage="/images/galeri/drone.webp" />
-        <AsetDesa />
-        <KegiatanDesa />
-        <GaleriGrid />
+        <HeroGaleri bannerImage={galeri?.hero_image ?? undefined} />
+        <AsetDesa items={asetDesaList.length > 0 ? asetDesaList : undefined} />
+        <KegiatanDesa items={kegiatanDesaList.length > 0 ? kegiatanDesaList : undefined} />
+        <GaleriGrid
+          highlightImage={galeri?.foto_highlight ?? undefined}
+          extraImages={extraImagesList.length > 0 ? extraImagesList : undefined}
+        />
       </div>
 
-      {/* Mobile Bottom Navigation milikmu */}
+      {/* Mobile Bottom Navigation */}
       <MobileBottomNav />
     </main>
   );

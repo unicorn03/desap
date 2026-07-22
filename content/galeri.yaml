@@ -1,0 +1,44 @@
+hero_image: /images/galeri/hero_image.webp
+aset_desa:
+  - nama: Aset Desa Utama
+    foto: /images/galeri/aset_desa/0/foto.webp
+  - nama: Candi Plumbangan
+    foto: /images/galeri/aset_desa/1/foto.webp
+kegiatan_desa:
+  - deskripsi: >-
+      Methik Pari merupakan sebuah ritual adat yang digelar menjelang masa panen
+      raya sebagai wujud rasa syukur para petani
+    foto: /images/galeri/kegiatan_desa/0/foto.webp
+  - deskripsi: >-
+      Sebagian besar penduduk desa menggantungkan hidup pada sektor pertanian,
+      tekun mengolah ladang dengan menanam tanaman padi serta palawija seperti
+      jagung.
+    foto: /images/galeri/kegiatan_desa/1/foto.webp
+  - deskripsi: >-
+      Piodalan (atau Odalan) adalah upacara peringatan hari ulang tahun atau
+      pendirian sebuah tempat suci atau pura.
+    foto: /images/galeri/kegiatan_desa/2/foto.webp
+  - deskripsi: >-
+      Peninjauan dan pendataan benda cagar budaya berupa batu bata kuno di area
+      hutan Gondang, Pagak oleh aparatur desa bersama warga setempat.
+    foto: /images/galeri/kegiatan_desa/3/foto.webp
+  - deskripsi: >-
+      Baritan Suro adalah tradisi masyarakat Jawa yang digelar setiap malam atau
+      menyambut 1 Muharram (1 Suro). Bertujuan sebagai penolak bala dan ungkapan
+      syukur atas rezeki.
+    foto: /images/galeri/kegiatan_desa/4/foto.webp
+  - deskripsi: >-
+      Peternak warga Desa Plumbangan mendampingi kerbau miliknya yang sedang
+      mandi dan berendam santai di saluran air pinggir jalan desa.
+    foto: /images/galeri/kegiatan_desa/5/foto.webp
+foto_highlight: /images/galeri/foto_highlight.webp
+galeri_grid:
+  - {}
+  - foto: /images/galeri/galeri_grid/1/foto.webp
+  - foto: /images/galeri/galeri_grid/2/foto.webp
+  - foto: /images/galeri/galeri_grid/3/foto.webp
+  - foto: /images/galeri/galeri_grid/4/foto.webp
+  - foto: /images/galeri/galeri_grid/5/foto.webp
+  - foto: /images/galeri/galeri_grid/6/foto.jpg
+  - foto: /images/galeri/galeri_grid/7/foto.webp
+  - foto: /images/galeri/galeri_grid/8/foto.jpeg

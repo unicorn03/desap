@@ -1,54 +1,45 @@
+"use client";
+
 import React from "react";
 
-/**
- * StrukturDesaSection
- * ---------------------------------------------------------------------------
- * Recreates a village-government org chart ("Susunan Organisasi dan Tata
- * Kerja Pemerintah") as a single self-contained section.
- *
- * - Pure Tailwind, no external chart libs.
- * - Photos are optional: pass a `photo` (image URL) on any person; otherwise
- *   an initials placeholder is shown, matching the "empty" nodes in the
- *   source chart (Kamituwo Barek, Kamituwo Pagak, Karyawan Desa - Dwi Agus).
- * - Lines are drawn with absolutely-positioned divs inside a fixed-size
- *   canvas, then the whole canvas scrolls horizontally on small screens
- *   (org charts don't reflow well, so this is the standard approach).
- * ---------------------------------------------------------------------------
- */
-
-type Person = {
+export type Person = {
   name: string;
   role: string;
   note?: string;
   photo?: string;
-  accent?: "default" | "highlight"; // highlight = red ring, like Hernindya in the source
+  accent?: "default" | "highlight";
 };
 
-const initials = (name: string) =>
-  name
+const initials = (name: string) => {
+  if (!name) return "?";
+  const clean = name
     .replace(/,.*$/, "")
-    .split(" ")
-    .filter(Boolean)
-    .slice(0, 2)
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
+    .replace(/\b(S\.P[dD]|S\.E|S\.Ak|S\.Sos|M\.P[dD]|Drs)\b\.?/gi, "")
+    .trim();
+  const parts = clean.split(" ").filter(Boolean);
+  if (parts.length === 0) return "?";
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase();
+  return (parts[0][0] + parts[1][0]).toUpperCase();
+};
 
 function Avatar({ person }: { person: Person }) {
+  const [imgError, setImgError] = React.useState(false);
   const ring =
     person.accent === "highlight" ? "ring-red-600" : "ring-[#485935]";
+
   return (
     <div
-      className={`relative z-10 h-14 w-14 shrink-0 rounded-full ring-4 ${ring} bg-stone-100 overflow-hidden flex items-center justify-center`}
+      className={`relative z-10 h-14 w-14 shrink-0 rounded-full ring-4 ${ring} bg-[#3F4E20] overflow-hidden flex items-center justify-center shadow-md`}
     >
-      {person.photo ? (
+      {person.photo && !imgError ? (
         <img
           src={person.photo}
           alt={person.name}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-cover aspect-square"
+          onError={() => setImgError(true)}
         />
       ) : (
-        <span className="text-sm font-semibold text-stone-400">
+        <span className="text-base font-extrabold text-white tracking-wider">
           {initials(person.name)}
         </span>
       )}
@@ -64,10 +55,10 @@ function Card({ person }: { person: Person }) {
         <div className="rounded bg-[#485935] px-2 py-1 text-[11px] font-bold leading-tight text-white -mt-1.5 -ml-3 mr-[-9px] w-[calc(100%+9px)]">
           {person.role}
         </div>
-        <div className="mt-1 text-[11px] leading-snug text-stone-800">
+        <div className="mt-1 text-[11px] leading-snug text-stone-800 font-medium">
           {person.name}
           {person.note && (
-            <div className="text-[10px] text-stone-600">{person.note}</div>
+            <div className="text-[10px] text-stone-600 font-normal">{person.note}</div>
           )}
         </div>
       </div>
@@ -75,7 +66,6 @@ function Card({ person }: { person: Person }) {
   );
 }
 
-/** Node placed at an absolute x/y (top-left) on the canvas. */
 function Node({
   x,
   y,
@@ -92,7 +82,7 @@ function Node({
   );
 }
 
-const LINE = "#4a5a3a"; // dark olive, matches the source chart's connector lines
+const LINE = "#4a5a3a";
 
 function HLine({ x1, x2, y }: { x1: number; x2: number; y: number }) {
   return (
@@ -125,44 +115,44 @@ function VLine({ x, y1, y2 }: { x: number; y1: number; y2: number }) {
 }
 
 // ---------------------------------------------------------------------------
-// Data — edit names/roles/photos here
+// Default Fallback Data
 // ---------------------------------------------------------------------------
 
-const kepalaDesa: Person = {
+const DEFAULT_KEPALA_DESA: Person = {
   name: "Yoyok Eko Iswahyudi, S.E.",
   role: "Kepala Desa",
   note: "Penata Tingkat I - NIP.",
   photo: '/YOYOK.webp'
 };
 
-const sekretarisDesa: Person = {
+const DEFAULT_SEKRETARIS_DESA: Person = {
   name: "Nuryani",
   role: "Sekretaris Desa",
   photo: '/NURYANI.webp'
 };
 
-const kasiRow: Person[] = [
+const DEFAULT_KASI_ROW: Person[] = [
   { name: "Irwan Wahyu Saputro", role: "Kasi Pelayanan", photo: '/RWAN.webp' },
   { name: "Didin Mulantika, S.Sos.", role: "Kasi Pemerintahan", photo: '/DIDIN.webp'},
-  { name: "Nur Hadi Asy'ari, S.Pd.I.", role: "Kasi Kesejahteraan", photo: 'NURHADI.webp'},
+  { name: "Nur Hadi Asy'ari, S.Pd.I.", role: "Kasi Kesejahteraan", photo: '/NURHADI.webp'},
 ];
 
-const kaurRow: Person[] = [
-  { name: "Elisa Wahyuniati", role: "Kaur TU & Umum" , photo: 'ELISA.webp'},
-  { name: "Heru Irawan", role: "Kaur Keuangan", photo : 'HERU.webp' },
-  { name: "Septiana Heru Santi, S.Ak", role: "Kaur Perencanaan", photo: 'SEPTIANA.webp' },
+const DEFAULT_KAUR_ROW: Person[] = [
+  { name: "Elisa Wahyuniati", role: "Kaur TU & Umum" , photo: '/ELISA.webp'},
+  { name: "Heru Irawan", role: "Kaur Keuangan", photo : '/HERU.webp' },
+  { name: "Septiana Heru Santi, S.Ak", role: "Kaur Perencanaan", photo: '/SEPTIANA.webp' },
 ];
 
-const kamituwoRow: Person[] = [
-  { name: "Irwan Wahyu Saputro", role: "Kamituwo Plumbangan", photo: 'IRWAN.webp'},
-  { name: "Agus Riadi", role: "Kamituwo Barek", },
-  { name: "Suryadi", role: "Kamituwo Precet", photo: 'SURYADI.webp' },
+const DEFAULT_KAMITUWO_ROW: Person[] = [
+  { name: "Irwan Wahyu Saputro", role: "Kamituwo Plumbangan", photo: '/IRWAN.webp'},
+  { name: "Agus Riadi", role: "Kamituwo Barek" },
+  { name: "Suryadi", role: "Kamituwo Precet", photo: '/SURYADI.webp' },
   { name: "Bambang Prasetyo", role: "Kamituwo Pagak" },
 ];
 
-const karyawanRow: Person[] = [
-  { name: "Hernindya Annisa Rahayu, S.Pd", role: "Karyawan Desa", photo: 'HERNINDYA.webp' },
-  { name: "Dwi Agus Ningtyas", role: "Karyawan Desa", },
+const DEFAULT_KARYAWAN_ROW: Person[] = [
+  { name: "Hernindya Annisa Rahayu, S.Pd", role: "Karyawan Desa", photo: '/HERNINDYA.webp' },
+  { name: "Dwi Agus Ningtyas", role: "Karyawan Desa" },
 ];
 
 const CARD_W = 200;
@@ -186,15 +176,31 @@ const center = (x: number) => x + CARD_W / 2;
 const CANVAS_W = 1300;
 const CANVAS_H = 540;
 
-export default function StrukturDesaSection() {
+type StrukturDesaSectionProps = {
+  kepalaDesa?: Person;
+  sekretarisDesa?: Person;
+  kasiRow?: Person[];
+  kaurRow?: Person[];
+  kamituwoRow?: Person[];
+  karyawanRow?: Person[];
+};
+
+export default function StrukturDesaSection({
+  kepalaDesa = DEFAULT_KEPALA_DESA,
+  sekretarisDesa = DEFAULT_SEKRETARIS_DESA,
+  kasiRow = DEFAULT_KASI_ROW,
+  kaurRow = DEFAULT_KAUR_ROW,
+  kamituwoRow = DEFAULT_KAMITUWO_ROW,
+  karyawanRow = DEFAULT_KARYAWAN_ROW,
+}: StrukturDesaSectionProps) {
   const kepalaC = center(kepalaPos.x); // 570
   const kepalaBottom = kepalaPos.y + CARD_H; // 78
   const sekretarisC = center(sekretarisPos.x); // 860
 
-  const branchY = 95; // where the Sekretaris branch splits off the trunk
-  const kasiJoinY = rowKasiKaurY - 10; // 205
-  const kamJoinY = kamY - 10; // 320
-  const karyawanJoinY = karyawanY - 10; // 435
+  const branchY = 95;
+  const kasiJoinY = rowKasiKaurY - 10;
+  const kamJoinY = kamY - 10;
+  const karyawanJoinY = karyawanY - 10;
 
   return (
     <section className="w-full py-10"
@@ -214,33 +220,28 @@ export default function StrukturDesaSection() {
             style={{ width: CANVAS_W, height: CANVAS_H, minWidth: CANVAS_W }}
           >
             {/* ---- connector lines ---- */}
-            {/* Kepala Desa -> Sekretaris branch */}
             <VLine x={kepalaC} y1={kepalaBottom} y2={branchY} />
             <HLine x1={kepalaC} x2={sekretarisC} y={branchY} />
             <VLine x={sekretarisC} y1={branchY} y2={sekretarisPos.y} />
 
-            {/* Main trunk down to Kasi row */}
             <VLine x={kepalaC} y1={kepalaBottom} y2={kasiJoinY} />
             <HLine x1={kasiX.map(center)[0]} x2={kasiX.map(center)[2]} y={kasiJoinY} />
             {kasiX.map((x) => (
               <VLine key={`kasi-${x}`} x={center(x)} y1={kasiJoinY} y2={rowKasiKaurY} />
             ))}
 
-            {/* Sekretaris trunk down to Kaur row */}
             <VLine x={sekretarisC} y1={sekretarisPos.y + CARD_H} y2={kasiJoinY} />
             <HLine x1={kaurX.map(center)[0]} x2={kaurX.map(center)[2]} y={kasiJoinY} />
             {kaurX.map((x) => (
               <VLine key={`kaur-${x}`} x={center(x)} y1={kasiJoinY} y2={rowKasiKaurY} />
             ))}
 
-            {/* Trunk continues down to Kamituwo row */}
             <VLine x={kepalaC} y1={kasiJoinY} y2={kamJoinY} />
             <HLine x1={kamX.map(center)[0]} x2={kamX.map(center)[kamX.length - 1]} y={kamJoinY} />
             {kamX.map((x) => (
               <VLine key={`kam-${x}`} x={center(x)} y1={kamJoinY} y2={kamY} />
             ))}
 
-            {/* Trunk continues down to Karyawan row */}
             <VLine x={kepalaC} y1={kamJoinY} y2={karyawanJoinY} />
             <HLine
               x1={karyawanX.map(center)[0]}
@@ -256,16 +257,16 @@ export default function StrukturDesaSection() {
             <Node x={sekretarisPos.x} y={sekretarisPos.y} person={sekretarisDesa} />
 
             {kasiRow.map((p, i) => (
-              <Node key={p.role} x={kasiX[i]} y={rowKasiKaurY} person={p} />
+              <Node key={p.role} x={kasiX[i] ?? kasiX[0]} y={rowKasiKaurY} person={p} />
             ))}
             {kaurRow.map((p, i) => (
-              <Node key={p.role} x={kaurX[i]} y={rowKasiKaurY} person={p} />
+              <Node key={p.role} x={kaurX[i] ?? kaurX[0]} y={rowKasiKaurY} person={p} />
             ))}
             {kamituwoRow.map((p, i) => (
-              <Node key={p.role} x={kamX[i]} y={kamY} person={p} />
+              <Node key={p.role} x={kamX[i] ?? kamX[0]} y={kamY} person={p} />
             ))}
             {karyawanRow.map((p, i) => (
-              <Node key={`${p.role}-${i}`} x={karyawanX[i]} y={karyawanY} person={p} />
+              <Node key={`${p.role}-${i}`} x={karyawanX[i] ?? karyawanX[0]} y={karyawanY} person={p} />
             ))}
           </div>
         </div>
