@@ -25,7 +25,7 @@ export default function Footer() {
       {/* Logo Desa Floating di Atas Center */}
       <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10">
         <Image
-          src="/logo-desa.png"
+          src="/logo-plumbangan.png"
           alt="Logo Desa Plumbangan"
           width={140}
           height={140}

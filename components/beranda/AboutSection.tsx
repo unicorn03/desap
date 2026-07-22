@@ -2,56 +2,48 @@ import Image from "next/image";
 import Link from "next/link";
 
 type AboutSectionProps = {
-  images?: [string, string, string]; // paths for the 3 staggered photos
+  images?: ['/public/downviewcandi.webp', string, string]; // paths for the 3 staggered photos
 };
 
 export default function AboutSection({ images }: AboutSectionProps) {
   const [img1, img2, img3] = images ?? [];
 
   return (
-    <section className="px-4 bg-[#CADBB7] pb-16 pt-16 sm:px-8">
-      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#3F4E20] px-6 py-14 sm:px-10 md:px-16">
-        <div className="grid grid-cols-1 items-center gap-12 my-10 lg:grid-cols-[auto_1fr]">
-          {/* Staggered photo cluster */}
-          <div className="relative mx-auto w-[240px] shrink-0 sm:w-[260px]">
+    <section className="px-4 bg-[#CADBB7] pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-16">
+      <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#3F4E20] px-5 py-10 sm:px-10 sm:py-14 md:px-16">
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12 lg:my-10">
+          {/* Photo row on mobile / staggered cluster on desktop */}
+          <div className="grid grid-cols-3 gap-3 lg:relative lg:mx-auto lg:block lg:w-[260px] lg:shrink-0 lg:gap-0">
             <Photo
               src={img1}
               alt="Foto Desa Plumbangan 1"
-              className="ml-auto mb-6 h-[180px] w-[190px] rounded-bl-[64px] rounded-tr-[64px]"
+              className="aspect-square w-full rounded-br-[32px] rounded-tl-[32px] lg:ml-auto lg:mb-6 lg:aspect-auto lg:h-[180px] lg:w-[190px] lg:rounded-bl-[64px] lg:rounded-tr-[64px] lg:rounded-br-none"
             />
             <Photo
               src={img2}
               alt="Foto Desa Plumbangan 2"
-              className="h-[150px] w-[188px] rounded-br-[56px] rounded-tl-[56px]"
+              className="aspect-square w-full rounded-br-[32px] rounded-tl-[32px] lg:aspect-auto lg:h-[150px] lg:w-[188px] lg:rounded-br-[56px] lg:rounded-tl-[56px]"
             />
             <Photo
               src={img3}
               alt="Foto Desa Plumbangan 3"
-              className="ml-auto mt-6 h-[155px] w-[190px] rounded-bl-[56px] rounded-tr-[56px]"
+              className="aspect-square w-full rounded-br-[32px] rounded-tl-[32px] lg:ml-auto lg:mt-6 lg:aspect-auto lg:h-[155px] lg:w-[190px] lg:rounded-bl-[56px] lg:rounded-tr-[56px] lg:rounded-br-none"
             />
           </div>
 
           {/* Copy */}
-          <div className="text-white">
+          <div className="text-right text-white lg:text-left">
             <h2 className="font-display text-3xl font-bold sm:text-4xl">
               Tentang
             </h2>
 
             <div className="mt-5 space-y-4 text-sm leading-relaxed text-white/90 sm:text-base">
               <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Proin id arcu aliquet, elementum nisi quis, varius nibh.
-                Phasellus quis sodales sem.
+                Desa Plumbangan sudah ada pada masa Pemerintahan Kerajaan Kediri di bawah Raja Jaya Baya, yang terus berlangsung hingga Pemerintahan Majapahit, hingga masa keruntuhannya.
+                Berdasarkan data yang kami dapat bahwa Pemerintah Desa Plumbangan yang pertama baru dimulai Tahun 1895 Masehi. 
               </p>
               <p>
-                Ut convallis, lorem ut tincidunt sodales, eros leo sodales
-                ex, nec accumsan nisl turpis sed sem. Vivamus sit amet
-                tellus tincidunt, elementum elit non, porta magna.
-              </p>
-              <p>
-                Curabitur vel leo id massa dictum efficitur. Mauris
-                elementum, ante interdum varius interdum, sem odio
-                volutpat magna, vel iaculis erat urna sit amet turpis.
+                Terdiri dari 4 Dusun yang ditandai dengan petilasan ( punden ) dan setiap dusun mengadakan acara ritual sendiri ( Bersih Dusun ) di bulan Jawa Selo
               </p>
             </div>
             <Link
