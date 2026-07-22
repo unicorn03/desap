@@ -38,49 +38,56 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={`
-        hidden
-        md:flex
-        fixed
-        top-8
-        left-20
-        right-20
-        z-50
-        h-20
-        items-center
-        justify-between
-        rounded-full
-        bg-gradient-to-r
-        from-[#2E4A2B]
-        via-[#4F6F3A]
-        to-[#6E8F47]
-        border
-        border-white/20
-        shadow-2xl
-        px-6
-        py-2.5
-        text-white
-        transition-transform
-        duration-300
-        ease-in-out
-        ${isVisible ? "translate-y-0" : "-translate-y-32"}
-      `}
-    >
-      <div className="flex items-center gap-[10px]">
-        <Image
-          src="/logo-desa.png"
-          alt="Logo Desa Plumbangan"
-          width={40}
-          height={40}
-          className="rounded-full bg-white"
-        />
-        <span className="font-bold text-[14px] leading-[1.2]">
-          Desa
-          <br />
-          Plumbangan
-        </span>
-      </div>
+    <>
+      <nav
+        className={`
+          hidden
+          md:flex
+          fixed
+          top-8
+          left-20
+          right-20
+          z-50
+          h-20
+          items-center
+          justify-between
+          rounded-full
+          bg-gradient-to-r
+          from-[#2E4A2B]
+          via-[#4F6F3A]
+          to-[#6E8F47]
+          border
+          border-white/20
+          shadow-2xl
+          px-6
+          py-2.5
+          text-white
+          transition-transform
+          duration-300
+          ease-in-out
+          ${isVisible ? "translate-y-0" : "-translate-y-32"}
+        `}
+      >
+        <div className="flex items-center gap-[10px]">
+          <Image
+            src="/logo-desa.png"
+            alt="Logo Desa Plumbangan"
+            width={40}
+            height={40}
+            className="rounded-full bg-white"
+          />
+          <span className="font-bold text-[14px] leading-[1.2]">
+            Desa
+            <br />
+            Plumbangan
+          </span>
+        </div>
+
+        <ul className="flex items-center space-x-2">
+          {menuItems.map((item) => {
+            const isActive =
+              pathname === item.href ||
+              (item.href !== "/" && pathname.startsWith(item.href));
 
             return (
               <li key={item.href}>
@@ -97,46 +104,6 @@ export default function Navbar() {
           })}
         </ul>
       </nav>
-
-      {/* Mobile Top Header Bar */}
-      <div
-        className={`
-          flex md:hidden
-          fixed
-          top-4
-          left-4
-          right-4
-          z-40
-          h-14
-          items-center
-          justify-between
-          rounded-full
-          bg-[#3F4E20]/90
-          backdrop-blur-md
-          border
-          border-white/20
-          shadow-lg
-          px-4
-          text-white
-          transition-transform
-          duration-300
-          ease-in-out
-          ${isVisible ? "translate-y-0" : "-translate-y-24"}
-        `}
-      >
-        <div className="flex items-center gap-3">
-          <Image
-            src="/logo-desa.png"
-            alt="Logo Desa Plumbangan"
-            width={32}
-            height={32}
-            className="rounded-full bg-white p-0.5"
-          />
-          <span className="font-bold text-sm tracking-wide">
-            Desa Plumbangan
-          </span>
-        </div>
-      </div>
     </>
   );
 }
