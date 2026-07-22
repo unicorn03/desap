@@ -65,7 +65,7 @@ export default function TentangDesaSection({
               {paragraphs.map((p, i) => (
                 <p
                   key={i}
-                  className="mb-4 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-xs font-normal text-transparent sm:text-base"
+                  className="mb-4 bg-gradient-to-r from-[#2E4A2B] to-[#5A7A3D] bg-clip-text text-xs font-normal text-transparent sm:text-base"
                 >
                   {p}
                 </p>

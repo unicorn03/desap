@@ -9,8 +9,8 @@ type AboutSectionProps = {
 // Default fallback images jika props tidak dikirim
 const DEFAULT_IMAGES: [string, string, string] = [
   "/images/galeri/candi-plumbangan06.webp",
-  "/images/galeri/candi-plumbangan06.webp", // Ganti sesuai path gambar defaultmu
-  "/images/galeri/candi-plumbangan06.webp", // Ganti sesuai path gambar defaultmu
+  "/images/galeri/DSC02680.webp", // Ganti sesuai path gambar defaultmu
+  "/images/galeri/Piodalan Hindu 2.webp", // Ganti sesuai path gambar defaultmu
 ];
 
 export default function AboutSection({ images = DEFAULT_IMAGES }: AboutSectionProps) {
@@ -52,7 +52,7 @@ export default function AboutSection({ images = DEFAULT_IMAGES }: AboutSectionPr
                 Berdasarkan data yang kami dapat bahwa Pemerintah Desa Plumbangan yang pertama baru dimulai Tahun 1895 Masehi. 
               </p>
               <p>
-                Terdiri dari 4 Dusun yang ditandai dengan petilasan ( punden ) dan setiap dusun mengadakan acara ritual sendiri ( Bersih Dusun ) di bulan Jawa Selo
+                Terdiri dari 4 Dusun yang ditandai dengan petilasan ( punden ) dan setiap dusun mengadakan acara ritual sendiri ( Bersih Dusun ) di bulan Jawa Selo.
               </p>
             </div>
             <Link
