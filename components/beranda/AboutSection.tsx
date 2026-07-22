@@ -1,18 +1,27 @@
 import Image from "next/image";
 import Link from "next/link";
 
+// 1. Perbaiki tipe props agar fleksibel menerima array 3 string
 type AboutSectionProps = {
-  images?: ['/public/downviewcandi.webp', string, string]; // paths for the 3 staggered photos
+  images?: [string, string, string] | string[];
 };
 
-export default function AboutSection({ images }: AboutSectionProps) {
-  const [img1, img2, img3] = images ?? [];
+// Default fallback images jika props tidak dikirim
+const DEFAULT_IMAGES: [string, string, string] = [
+  "/images/galeri/candi-plumbangan06.webp",
+  "/images/galeri/candi-plumbangan06.webp", // Ganti sesuai path gambar defaultmu
+  "/images/galeri/candi-plumbangan06.webp", // Ganti sesuai path gambar defaultmu
+];
+
+export default function AboutSection({ images = DEFAULT_IMAGES }: AboutSectionProps) {
+  // 2. Destructure dengan aman
+  const [img1, img2, img3] = images;
 
   return (
     <section className="px-4 bg-[#CADBB7] pb-12 pt-12 sm:px-8 sm:pb-16 sm:pt-16">
       <div className="mx-auto max-w-6xl rounded-[2rem] bg-[#3F4E20] px-5 py-10 sm:px-10 sm:py-14 md:px-16">
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-[auto_1fr] lg:items-center lg:gap-12 lg:my-10">
-          {/* Photo row on mobile / staggered cluster on desktop */}
+          {/* Photo cluster */}
           <div className="grid grid-cols-3 gap-3 lg:relative lg:mx-auto lg:block lg:w-[260px] lg:shrink-0 lg:gap-0">
             <Photo
               src={img1}
