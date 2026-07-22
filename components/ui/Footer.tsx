@@ -2,20 +2,37 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FaInstagram, FaFacebook } from "react-icons/fa";
-import { Mail, Phone } from "lucide-react";
+import { FaInstagram, FaTiktok, FaWhatsapp } from "react-icons/fa6";
+import { Mail } from "lucide-react";
 
 const kontakItems = [
-  { icon: FaInstagram, label: "Lorem ipsum dolor" },
-  { icon: FaFacebook, label: "Lorem ipsum dolor" },
-  { icon: Mail, label: "Lorem ipsum dolor" },
-  { icon: Phone, label: "Lorem ipsum dolor" },
+  {
+    icon: FaInstagram,
+    label: "Pemdes Plumbangan",
+    href: "https://www.instagram.com/pemdesplumbangan/",
+  },
+  {
+    icon: FaTiktok,
+    label: "Plumbangan Official",
+    href: "https://www.tiktok.com/@desaplumbangan",
+  },
+  {
+    icon: Mail,
+    label: "desaplumbangan5@gmail.com",
+    href: "mailto:desaplumbangan5@gmail.com",
+  },
+  {
+    icon: FaWhatsapp,
+    label: "Admin Desa Plumbangan",
+    href: "https://wa.me/6281235637233",
+  },
 ];
 
 const navigasiLinks = [
   { label: "Beranda", href: "/" },
   { label: "Tentang", href: "/tentang" },
   { label: "UMKM", href: "/umkm" },
+  { label: "Pelayanan", href: "/pelayanan" },
   { label: "Galeri", href: "/galeri" },
 ];
 
@@ -64,10 +81,17 @@ export default function Footer() {
           <div>
             <h3 className="mb-3 text-base font-bold">Kontak Pelayanan</h3>
             <ul className="space-y-2 text-xs text-white/90 font-medium">
-              {kontakItems.map(({ icon: Icon, label }, index) => (
-                <li key={index} className="flex items-center gap-2">
-                  <Icon size={16} className="shrink-0" />
-                  <span className="truncate">{label}</span>
+              {kontakItems.map(({ icon: Icon, label, href }, index) => (
+                <li key={index}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 transition hover:text-white/80"
+                  >
+                    <Icon size={16} className="shrink-0" />
+                    <span className="truncate">{label}</span>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -108,10 +132,17 @@ export default function Footer() {
         <div className="justify-self-center">
           <h3 className="mb-3 text-lg font-bold">Kontak Pelayanan</h3>
           <ul className="space-y-2 text-sm text-white/90 font-medium">
-            {kontakItems.map(({ icon: Icon, label }, index) => (
-              <li key={index} className="flex items-center gap-2">
-                <Icon size={16} className="shrink-0" />
-                <span>{label}</span>
+            {kontakItems.map(({ icon: Icon, label, href }, index) => (
+              <li key={index}>
+                <a
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 transition hover:text-white/80"
+                >
+                  <Icon size={16} className="shrink-0" />
+                  <span>{label}</span>
+                </a>
               </li>
             ))}
           </ul>

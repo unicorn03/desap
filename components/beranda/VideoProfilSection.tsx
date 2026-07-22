@@ -16,7 +16,7 @@ export default function VideoProfilSection({
           Video Profil Desa
         </h2>
 
-        <div className="overflow-hidden rounded-2xl border-4 border-white/90 bg-[#E1D6C1] shadow-lg">
+        <div className="overflow-hidden rounded-2xl bg-black/10 shadow-2xl shadow-black/25 ring-1 ring-white/10">
           <div className="relative aspect-video w-full">
             {embedUrl ? (
               <iframe

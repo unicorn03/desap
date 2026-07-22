@@ -158,7 +158,7 @@ export default function PelayananModal({
                         {detail.includes("http") ? (
                           <span>
                             {detail.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
-                              part.match(/^https?:\/\//) ? (
+                              part.match(/^https?:\/\//) && part.trim() !== "" ? (
                                 <a
                                   key={i}
                                   href={part}
@@ -197,7 +197,7 @@ export default function PelayananModal({
                         {lain.includes("http") ? (
                           <span>
                             {lain.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
-                              part.match(/^https?:\/\//) ? (
+                              part.match(/^https?:\/\//) && part.trim() !== "" ? (
                                 <a
                                   key={i}
                                   href={part}

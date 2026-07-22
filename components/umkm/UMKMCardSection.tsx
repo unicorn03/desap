@@ -51,6 +51,24 @@ export default function UMKMCardSection({
               {item.deskripsi}
             </p>
 
+            {/* Ringkasan Kontak / Medsos di Card
+            {(item.lokasi || item.narahubung || item.instagram || item.shopee || item.tokopedia || item.tiktok || item.facebook) && (
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-xs">
+                {item.lokasi && item.linkGmaps && item.linkGmaps.trim() !== "" && (
+                  <a
+                    href={item.linkGmaps}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`inline-flex items-center gap-1 font-semibold underline underline-offset-2 ${
+                      isDark ? "text-emerald-300 hover:text-white" : "text-[#3F4E20] hover:text-emerald-800"
+                    }`}
+                  >
+                    📍 Pinpoint Maps
+                  </a>
+                )}
+              </div>
+            )} */}
+
             <div className="pt-2">
               <button
                 onClick={() => onSelect(item)}

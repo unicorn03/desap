@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 
 const kegiatanList = [
@@ -21,7 +22,7 @@ const kegiatanList = [
   {
     id: 4,
     desc: "Peninjauan dan pendataan benda cagar budaya berupa batu bata kuno di area hutan Gondang, Pagak oleh aparatur desa bersama warga setempat.",
-    image: "/images/galeri/Gondang Pagak 2.webp",
+    image: "/images/galeri/Gondang Pagak.webp",
   },
   {
     id: 5,
@@ -45,27 +46,39 @@ export default function KegiatanDesa() {
       {/* Grid: 2 Kolom di Mobile, 3 Kolom di Desktop */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
         {kegiatanList.map((item) => (
-          <div
-            key={item.id}
-            className="flex flex-col bg-[#3d4e2a] rounded-2xl md:rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2"
-          >
-            {/* Header Gambar Card */}
-            <div className="relative w-full h-28 sm:h-36 md:h-44 bg-[#8fb3de]">
-              <Image
-                src={item.image}
-                alt="Foto Kegiatan"
-                fill
-                className="object-cover"
-              />
-            </div>
-            
-            {/* Body Deskripsi Card */}
-            <div className="p-2 sm:p-4 text-white text-[9px] sm:text-xs leading-tight sm:leading-relaxed text-center flex-1 flex items-center justify-center">
-              <p>{item.desc}</p>
-            </div>
-          </div>
+          <KegiatanCard key={item.id} item={item} />
         ))}
       </div>
     </section>
+  );
+}
+
+function KegiatanCard({ item }: { item: (typeof kegiatanList)[0] }) {
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div className="flex flex-col bg-[#3d4e2a] rounded-2xl md:rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1 md:hover:-translate-y-2">
+      {/* Header Gambar Card */}
+      <div className="relative w-full h-28 sm:h-36 md:h-44 bg-[#8fb3de]">
+        {!hasError ? (
+          <Image
+            src={item.image}
+            alt="Foto Kegiatan"
+            fill
+            className="object-cover"
+            onError={() => setHasError(true)}
+          />
+        ) : (
+          <div className="flex h-full w-full items-center justify-center bg-[#3F4E20] text-white/40 text-xs p-2 text-center">
+            Foto Kegiatan Desa
+          </div>
+        )}
+      </div>
+
+      {/* Body Deskripsi Card */}
+      <div className="p-2 sm:p-4 text-white text-[9px] sm:text-xs leading-tight sm:leading-relaxed text-center flex-1 flex items-center justify-center">
+        <p>{item.desc}</p>
+      </div>
+    </div>
   );
 }
