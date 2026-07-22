@@ -20,8 +20,8 @@ const kegiatanList = [
   },
   {
     id: 4,
-    desc: "Peninjauan dan pendataan benda cagar budaya berupa batu bata kuno di area hutan Gondang, Pagak oleh aparatur desa bersama warga setempat.",
-    image: "/images/galeri/Gondang Pagak 2.webp",
+    desc: "Semarak kemeriahan Festival Hari Ulang Tahun Desa Plumbangan menjadi ajang silaturahmi warga sekaligus memperkuat persekutuan gotong royong antar sesama.",
+    image: "/images/galeri/hut.webp",
   },
   {
     id: 5,
