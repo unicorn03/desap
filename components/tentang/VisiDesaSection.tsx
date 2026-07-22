@@ -1,8 +1,5 @@
 const visiItems = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "MEWUJUDKAN DESA PLUMBANGAN YANG SEJAHTERA, RELIGIUS, DAMAI, BERBUDAYA, MANDIRI DAN MAMPU BERDAYA SAING",
 ];
 
 export default function VisiDesaSection() {
@@ -13,7 +10,7 @@ export default function VisiDesaSection() {
           Visi Desa
         </h2>
 
-        <ul className="space-y-4">
+        <ul className="space-y-4 text-center">
           {visiItems.map((text, index) => (
             <li
               key={index}

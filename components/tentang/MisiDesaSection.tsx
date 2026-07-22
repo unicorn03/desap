@@ -1,8 +1,17 @@
 const misiItems = [
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Peningkatan sarana dan prasarana pendidikan keagamaan (tempat ibadah) yang ada di Desa Plumbangan.",
+  "Memajukan dan menggali kesenian adat.",
+  "Pelayanan kepada masyarakat harus ditingkatkan sesuai tugas dan fungsinya masing-masing perangkat desa.",
+  "Pelayanan dasar gratis / tidak di pungut biaya.",
+  "Menuntaskan sertifikat tanah warga.",
+  "Pembangunan, pengembangan, dan pemeliharaan infrastruktur pertanian yang sesuai kewenangan desa.",
+  "Dana Desa dipergunakan untuk membiayai/ mendaya gunakan potensi dan sumberdaya Desa sehingga desa bisa menghidupi pelayanan dasarnya sendiri.",
+  "Mengutamakan hak asal usul dan kewenangan lokal skala desa.",
+  "Peningkatan kualitas dan akses terhadap pelayanan sosial dasar.",
+  "Pengupayaan peningkatan jaringan Internet untuk warga desa.",
+  "Membuat rasa tentram warga yang kondusif sehingga warga merasa aman dan nyaman dalam bermasyarakat.",
+  "Pengadaan, pembangunan, pengembangan, dan pemeliharaan transportasi."
+
 ];
 
 export default function MisiDesaSection() {
@@ -12,7 +21,7 @@ export default function MisiDesaSection() {
         backgroundImage: "url('/backgrounddesa.webp')",
       }}>
       <div className="mx-auto max-w-4xl">
-        <h2 className="mb-8 text-center text-2xl font-bold text-[#3F4E20] sm:text-3xl">
+        <h2 className="mb-8 text-center text-2xl font-bold text-[#485935] sm:text-3xl">
           Misi Desa
         </h2>
 

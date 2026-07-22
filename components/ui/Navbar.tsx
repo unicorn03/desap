@@ -6,7 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const menuItems = [
-  { label: "Beranda", href: "/beranda" },
+  { label: "Beranda", href: "/" },
   { label: "Tentang", href: "/tentang" },
   { label: "UMKM", href: "/umkm" },
   { label: "Pelayanan", href: "/pelayanan" },

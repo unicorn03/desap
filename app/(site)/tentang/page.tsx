@@ -1,27 +1,29 @@
+import DataKependudukanSection from "@/components/tentang/DataKependudukanSection";
 import MisiDesaSection from "@/components/tentang/MisiDesaSection";
+import StrukturDesaSection from "@/components/tentang/StrukturDesaSection";
+import TentangDesaSection from "@/components/tentang/TentangDesaSection";
 import VisiDesaSection from "@/components/tentang/VisiDesaSection";
+import Image from "next/image";
 
 export default function Tentang() {
   return (
   <main>
-    <div
-      className="flex min-h-screen flex-col items-center justify-center bg-cover bg-center bg-no-repeat text-white"
-      style={{
-        backgroundImage: "url('/backgrounddesa.webp')",
-      }}
-    >
-      <h1 className="mb-4 bg-gradient-to-r from-[#2E4A2B] via-[#5A7A3D] to-[#A3C65D] bg-clip-text text-center text-7xl font-black text-transparent">
-        Tentang
-        <br />
-        Desa Plumbangan
-      </h1>
-
-      <p className="mt-2 text-slate-400">
-        anjay lorem ipsumm
-      </p>
-    </div>
+    <TentangDesaSection/>
     <VisiDesaSection/>
     <MisiDesaSection/>
+    <DataKependudukanSection
+      icon={
+        <Image
+          src="/penduduk.webp"
+          alt="Ikon jumlah penduduk"
+          width={100}
+          height={100}
+        />
+      }
+      jumlahPenduduk="2.300"
+      dusunList={["4 Dusun", "4 Sekolah", "1 Candi"]}
+    />
+    <StrukturDesaSection/>
   </main>
   );
 }
