@@ -17,7 +17,7 @@ export default function GaleriGrid() {
       {/* Gambar Highlight Besar */}
       <div className="w-full h-[240px] sm:h-[420px] md:h-[550px] relative rounded-[28px] md:rounded-[35px] bg-[#3d4e2a] overflow-hidden shadow-md transition-all duration-300 hover:-translate-y-1">
         <Image
-          src="/images/galeri/IMG_6547.jpg"
+          src="/images/galeri/IMG_6547.webp"
           alt="Galeri Highlight"
           fill
           className="object-cover"

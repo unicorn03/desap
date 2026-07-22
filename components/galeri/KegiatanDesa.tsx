@@ -6,32 +6,32 @@ const kegiatanList = [
   {
     id: 1,
     desc: "Methik Pari merupakan sebuah ritual adat yang digelar menjelang masa panen raya sebagai wujud rasa syukur para petani",
-    image: "/images/galeri/Methik Pagak 2.JPG",
+    image: "/images/galeri/Methik Pagak 2.webp",
   },
   {
     id: 2,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/images/galeri/baritan suro.jpeg",
+    desc: "Sebagian besar penduduk desa menggantungkan hidup pada sektor pertanian, tekun mengolah ladang dengan menanam tanaman padi serta palawija seperti jagung.",
+    image: "/images/galeri/DSC02680.JPG",
   },
   {
     id: 3,
     desc: "Piodalan (atau Odalan) adalah upacara peringatan hari ulang tahun atau pendirian sebuah tempat suci atau pura.",
-    image: "/images/galeri/Piodalan Hindu 2.JPG",
+    image: "/images/galeri/Piodalan Hindu 2.webp",
   },
   {
     id: 4,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/images/galeri/Gondang Pagak 2.JPG",
+    desc: "Peninjauan dan pendataan benda cagar budaya berupa batu bata kuno di area hutan Gondang, Pagak oleh aparatur desa bersama warga setempat.",
+    image: "/images/galeri/Gondang Pagak 2.jpg",
   },
   {
     id: 5,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/images/galeri/Punden Mbah Galiyem Sumberkodok 1.JPG",
+    desc: "Warga melakukan ziarah ritual di Punden Mbah Galiyem Sumberkodok, memanjatkan doa khusyuk di dekat makam keramat dalam suasana tenang di bawah bimbingan sesepuh setempat.",
+    image: "/images/galeri/Punden Mbah Galiyem Sumberkodok 1.webp",
   },
   {
     id: 6,
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin id arcu aliquet, elementum nisi quis, varius nibh.",
-    image: "/images/galeri/IMG_3713.JPG",
+    desc: "Peternak warga Desa Plumbangan mendampingi kerbau miliknya yang sedang mandi dan berendam santai di saluran air pinggir jalan desa.",
+    image: "/images/galeri/kebo.webp",
   },
 ];
 

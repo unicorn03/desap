@@ -8,8 +8,8 @@ interface AsetDesaProps {
 }
 
 export default function AsetDesa({
-  primaryImage = "/images/galeri/IMG_6534.jpg",
-  secondaryImage = "/images/galeri/candi-plumbangan06.jpg", // Gambar aset ke-2
+  primaryImage = "/images/galeri/IMG_6534.webp",
+  secondaryImage = "/images/galeri/candi-plumbangan06.webp", // Gambar aset ke-2
 }: AsetDesaProps) {
   return (
     <section className="w-full py-6 flex flex-col items-center px-4 sm:px-6">
